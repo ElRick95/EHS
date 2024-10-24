@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start/Stop Button</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .button.stop {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="startStopButton" class="button">Start</button>
+
+    <script>
+        const button = document.getElementById('startStopButton');
+        let isRunning = false;
+
+        button.addEventListener('click', () => {
+            if (isRunning) {
+                button.textContent = 'Start';
+                button.classList.remove('stop');
+                // Add the logic to stop here
+                console.log('Stopped!');
+            } else {
+                button.textContent = 'Stop';
+                button.classList.add('stop');
+                // Add the logic to start here
+                console.log('Started!');
+            }
+            isRunning = !isRunning; // Toggle the state
+        });
+    </script>
+
+</body>
+</html>
